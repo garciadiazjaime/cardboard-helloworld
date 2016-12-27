@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var env = process.env;
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -13,6 +14,11 @@ app.get('/viewer', (req, res) => {
   res.render('viewer', { title: 'ejs' });
 });
 
-app.listen(3000, () => {
-  console.log('running on 127.0.0.1:3000');
+app.get('/health', (req, res) => {
+  res.writeHead(200);
+  res.end();
+});
+
+app.listen(env.NODE_PORT || 3000, env.NODE_IP || 'localhost', () => {
+  console.log('running on ', env.NODE_PORT || 3000, env.NODE_IP || 'localhost');
 });
