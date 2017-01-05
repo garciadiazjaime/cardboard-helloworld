@@ -6,20 +6,16 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(express.static('static'));
 
-app.get('/', (req, res) => {
-  res.render('index', { title: 'ejs' });
-});
-
-app.get('/image2', (req, res) => {
-  res.render('image2', { title: 'ejs' });
-});
-
-app.get('/image3', (req, res) => {
-  res.render('image3', { title: 'ejs' });
-});
-
 app.get('/viewer', (req, res) => {
   res.render('viewer', { title: 'ejs' });
+});
+
+app.get('/display/:image', (req, res) => {
+  res.render('display', { image: req.params.image });
+});
+
+app.get('/display', (req, res) => {
+  res.render('display', { image: 'image1' });
 });
 
 app.get('/health', (req, res) => {

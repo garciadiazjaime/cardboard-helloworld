@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="http://127.0.0.1:3000/display/image1">image1</a><br>
+    <a href="http://127.0.0.1:3000/display/image2">image2</a><br>
+    <a href="http://127.0.0.1:3000/display/image3">image3</a>
+    <iframe
+ frameborder="0"
+ width="100%"
+ scrolling="no"
+ allowfullscreen
+ src="/viewer?image=/images/pano/<%= image %>.jpg&is_stereo=true">
+</iframe>
+
+  </body>
+</html>
